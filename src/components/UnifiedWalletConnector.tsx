@@ -272,7 +272,7 @@ export function UnifiedWalletConnector(): ReactNode {
 
       {/* Connect/Disconnect */}
       {connected && <button onClick={handleDisconnect}>Disconnect</button>}
-      {!connected && activeWallet && <button onClick={handleConnect} disabled={activeWallet.readyState !== 'Installed'}>Connect</button>}
+      {!connected && activeWallet && <button onClick={handleConnect}>Connect</button>}
 
       {/* Actions (only when connected) */}
       {connected && (
