@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect } from 'react';
-import { useWalletAdapter } from '../../../wallet-hub/src';
+import { useWalletAdapter } from 'wallet-hub';
 import bs58 from 'bs58';
 import {
   Connection,

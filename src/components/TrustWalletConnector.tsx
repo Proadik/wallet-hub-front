@@ -1,5 +1,5 @@
 import {type ReactNode, useEffect} from 'react';
-import {useTrustWalletAdapter} from "../../../wallet-hub/src";
+import {useTrustWalletAdapter} from "wallet-hub";
 import bs58 from 'bs58';
 
 export function TrustWalletConnector(): ReactNode {

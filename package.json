@@ -14,7 +14,7 @@
     "bs58": "^6.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "wallet-hub": "file:../wallet-hub"
+    "wallet-hub": "^0.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

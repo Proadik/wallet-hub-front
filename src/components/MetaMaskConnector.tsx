@@ -1,5 +1,5 @@
 import {type ReactNode, useEffect} from 'react';
-import {useEthereumAdapter} from "../../../wallet-hub/src";
+import {useEthereumAdapter} from "wallet-hub";
 import bs58 from 'bs58';
 
 export function MetaMaskConnector(): ReactNode {

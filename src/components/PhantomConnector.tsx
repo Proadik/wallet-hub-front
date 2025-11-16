@@ -1,5 +1,5 @@
 import {type ReactNode, useEffect} from 'react';
-import {usePhantomAdapter} from "../../../wallet-hub/src";
+import {usePhantomAdapter} from "wallet-hub";
 import bs58 from 'bs58';
 
 export function PhantomConnector(): ReactNode {
@@ -21,11 +21,11 @@ export function PhantomConnector(): ReactNode {
       // Example: signMessageAndEncodeToBase58 - accepts string, returns base58 string
       const signatureBase58 = await signMessageAndEncodeToBase58("Hello, world! This is a test message.");
       console.log('Signature (base58):', signatureBase58);
-      
+
       // Decode base58 back to Uint8Array
       const signatureUint8Array = bs58.decode(signatureBase58);
       console.log('Signature (Uint8Array decoded):', signatureUint8Array);
-      
+
       alert(`Signature (base58): ${signatureBase58.substring(0, 20)}...\nDecoded length: ${signatureUint8Array.length} bytes`);
     } catch (error) {
       console.error('Error signing message:', error);

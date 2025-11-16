@@ -5,7 +5,7 @@ import {
   SolflareWalletAdapter,
   TrustWalletAdapter,
   MetaMaskAdapter,
-} from '../../wallet-hub/src'
+} from 'wallet-hub'
 import {UnifiedWalletConnector} from "./components/UnifiedWalletConnector.tsx";
 
 function App() {
