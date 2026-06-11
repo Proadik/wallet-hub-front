@@ -18,7 +18,7 @@
     "resolvePackageJsonExports": true,
     "baseUrl": ".",
     "paths": {
-      "wallet-hub": ["../wallet-hub/dist"]
+      "wallet-hub": ["../wallet-hub/src"]
     },
 
     /* Linting */

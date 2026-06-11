@@ -6,24 +6,22 @@ import {
   TrustWalletAdapter,
   MetaMaskAdapter,
 } from 'wallet-hub'
-import {UnifiedWalletConnector} from "./components/UnifiedWalletConnector.tsx";
+import { UnifiedWalletConnector } from './components/UnifiedWalletConnector'
+
+const SOLANA_DEVNET = 'https://api.devnet.solana.com';
+
+const wallets = [
+  new PhantomWalletAdapter({ rpcEndpoint: SOLANA_DEVNET }),
+  new SolflareWalletAdapter({ rpcEndpoint: SOLANA_DEVNET }),
+  new TrustWalletAdapter(),
+  new MetaMaskAdapter(),
+];
 
 function App() {
-  const wallets = [
-    new PhantomWalletAdapter(),
-    new SolflareWalletAdapter(),
-    new TrustWalletAdapter(),
-    new MetaMaskAdapter()
-  ];
-
   return (
-    <>
-      <div style={{display: 'flex', gap: '20px', padding: '20px'}}>
-        <WalletAdapterProvider wallets={wallets}>
-          <UnifiedWalletConnector />
-        </WalletAdapterProvider>
-      </div>
-    </>
+    <WalletAdapterProvider wallets={wallets}>
+      <UnifiedWalletConnector />
+    </WalletAdapterProvider>
   )
 }
 
