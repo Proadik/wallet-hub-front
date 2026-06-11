@@ -16,10 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "resolvePackageJsonExports": true,
-    "baseUrl": ".",
-    "paths": {
-      "wallet-hub": ["../wallet-hub/src"]
-    },
 
     /* Linting */
     "strict": true,
