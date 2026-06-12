@@ -1,5 +1,5 @@
-import { type ReactNode } from 'react';
-import { useWalletAdapter } from 'wallet-hub';
+import { type ReactNode, isValidElement } from 'react';
+import { useWalletAdapter, type BaseAdapter } from 'wallet-hub';
 import {
   Connection,
   PublicKey,
@@ -61,6 +61,13 @@ const STATUS_STYLE: React.CSSProperties = {
   padding: '8px',
   borderRadius: '4px',
   fontSize: '13px',
+};
+
+const WalletIcon = ({ w }: { w: BaseAdapter }) => {
+  const custom = (w as any).customIcon;
+  if (isValidElement(custom)) return <span style={{ width: 20, height: 20, display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>{custom}</span>;
+  if (typeof custom === 'string') return <img src={custom} alt={w.name} style={{ width: 20, height: 20, flexShrink: 0 }} />;
+  return <img src={w.icon} alt={w.name} style={{ width: 20, height: 20, flexShrink: 0 }} />;
 };
 
 export function UnifiedWalletConnector(): ReactNode {
@@ -151,7 +158,7 @@ export function UnifiedWalletConnector(): ReactNode {
               style={solana.active === w ? WALLET_BTN_ACTIVE : WALLET_BTN_BASE}
               onClick={() => solana.select(w)}
             >
-              <img src={w.icon} alt={w.name} style={{ width: 20, height: 20 }} />
+              <WalletIcon w={w} />
               {w.name}
               {w.readyState === 'Installed' ? ' ✓' : ' (not installed)'}
             </button>
@@ -200,7 +207,7 @@ export function UnifiedWalletConnector(): ReactNode {
               style={evm.active === w ? WALLET_BTN_ACTIVE : WALLET_BTN_BASE}
               onClick={() => evm.select(w)}
             >
-              <img src={w.icon} alt={w.name} style={{ width: 20, height: 20 }} />
+              <WalletIcon w={w} />
               {w.name}
               {w.readyState === 'Installed' ? ' ✓' : ' (not installed)'}
             </button>
